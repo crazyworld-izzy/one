@@ -54,9 +54,9 @@ class Config(object):
 
     # OPTIONAL
     ##List of id's -  (not usernames) for users which have sudo access to the bot.
-    DRAGONS = [5323266323]
+    DRAGONS = [1820525265]
     ##List of id's - (not usernames) for developers who will have the same perms as the owner
-    DEV_USERS = [5323266323]
+    DEV_USERS = [1820525265]
     ##List of id's (not usernames) for users which are allowed to gban, but can also be banned.
     DEMONS = [5323266323]
     # List of id's (not usernames) for users which WONT be banned/kicked by the bot.
