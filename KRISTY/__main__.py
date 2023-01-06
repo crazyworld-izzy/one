@@ -1,7 +1,7 @@
 import html
 import os
-import asyncio
 import json
+import asyncio
 import importlib
 import time
 import re
@@ -14,8 +14,10 @@ from typing import Optional
 from platform import python_version as memek
 from KRISTY import (
     ALLOW_EXCL,
+    START_IMG,
     CERT_PATH,
     OWNER_USERNAME,
+    DONATION_LINK,
     BOT_USERNAME as bu,
     LOGGER,
     OWNER_ID,
@@ -25,7 +27,6 @@ from KRISTY import (
     URL,
     BOT_NAME,
     START_STICKER,
-    START_IMG,
     UPDATES_CHANNEL,
     WEBHOOK,
     SUPPORT_CHAT,
@@ -43,7 +44,7 @@ from KRISTY.modules.helper_funcs.chat_status import is_user_admin
 from KRISTY.modules.helper_funcs.misc import paginate_modules
 from telegram import __version__ as so
 from pyrogram import __version__ as do
-from telethon import __version__ as am
+from telethon import __version__ as no
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.error import (
     BadRequest,
@@ -88,18 +89,16 @@ def get_readable_time(seconds: int) -> str:
 
     return ping_time
 
-DONATION_LINK = "https://t.me/I_AM_PRO_KING"
-
 start_txt = """
 ʜᴇʏ🥀 `{}`, ʜᴏᴡ ᴀʀᴇ ʏᴏᴜ!!
 """
 
 PM_START_TEXT = """
 *Hello {} !*
-» ɪ ᴀᴍ ᴀ ᴘᴏᴡᴇʀ ꜰᴜʟʟ ʙᴏᴛ ᴛᴏ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘꜱ [🔥](https://telegra.ph/file/17fce64cf1e4dda004ecd.jpg)
+» ɪ'ᴍ ᴋʀɪꜱᴛʏ[🥀](https://telegra.ph/file/17fce64cf1e4dda004ecd.jpg) ᴀ ᴘᴏᴡᴇʀꜰᴜʟ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴛᴏ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ 
 ────────────────────────
-» *Uptime:* `{}`
-» `{}` *users, across* `{}` *chats.*
+× *Uptime:* `{}`
+× `{}` *users, across* `{}` *chats.*
 ────────────────────────
 » ʜɪᴛ /help ᴛᴏ ꜱᴇᴇ ᴍʏ ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅꜱ.
 """
@@ -111,10 +110,10 @@ buttons = [
         )
     ],
     [
-        InlineKeyboardButton(text="ᴄᴏᴍᴍᴀɴᴅꜱ", callback_data="help_back"),
+        InlineKeyboardButton(text="ᴄᴏᴍᴍᴀɴᴅꜱ", callback_data="KRISTY_"),
     ],
     [
-        InlineKeyboardButton(text="ᴀʙᴏᴜᴛ", callback_data="KRISTY_"),
+        InlineKeyboardButton(text="ᴀʙᴏᴜᴛ", callback_data="KRISTY_about"),
         InlineKeyboardButton(text="ᴏᴡɴᴇʀ", url=f"https://t.me/{OWNER_USERNAME}"),
     ],
     [
@@ -122,7 +121,6 @@ buttons = [
         InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{UPDATES_CHANNEL}"),
     ],
 ]
-
 
 HELP_STRINGS = """
 ᴄᴏᴍᴍᴀɴᴅs ᴀᴠᴀɪʟᴀʙʟᴇ:
@@ -135,7 +133,6 @@ HELP_STRINGS = """
 
 
 DONATE_STRING = """ᴊᴜsᴛ sᴜᴘᴘᴏʀᴛ ᴜs"""
-
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -225,7 +222,7 @@ def start(update: Update, context: CallbackContext):
                         [
                             [
                                 InlineKeyboardButton(
-                                    text="ʙᴀᴄᴋ", callback_data="help_back"
+                                    text="• ʙᴀᴄᴋ •", callback_data="help_back"
                                 )
                             ]
                         ]
@@ -273,7 +270,7 @@ def start(update: Update, context: CallbackContext):
     else:
         update.effective_message.reply_photo(
             START_IMG,
-            caption="ʜᴇʏ `{}`,\n\nɪ ᴀᴍ ᴀʟɪᴠᴇ ʙᴀʙʏ🖤!\n➥ᴜᴘᴛɪᴍᴇ: `{}` \n➥ᴜsᴇʀs: `{}` \n➥ᴄʜᴀᴛs: `{}` ".format(
+            caption="ʜᴇʏ `{}`,\n\nɪ ᴀᴍ ᴀʟɪᴠᴇ ʙᴀʙʏ !\n➥ᴜᴘᴛɪᴍᴇ: `{}` \n➥ᴜsᴇʀs: `{}` \n➥ᴄʜᴀᴛs: `{}` ".format(
                 usr.first_name,
                 uptime,
                 sql.num_users(),
@@ -284,12 +281,22 @@ def start(update: Update, context: CallbackContext):
                 [
                     [
                         InlineKeyboardButton(
-                            text="ʜᴇʟᴘ",
-                            url=f"https://t.me/{bu}?start=help",
+                            text="ꜱᴜᴘᴘᴏʀᴛ",
+                            url=f"https://t.me/{SUPPORT_CHAT}",
                         ),
+                        InlineKeyboardButton(
+                            text="ᴜᴘᴅᴀᴛᴇꜱ",
+                            url=f"https://t.me/{UPDATES_CHANNEL}",
+                        ),
+                    ],
+                    [
                         InlineKeyboardButton(
                             text="ᴏᴡɴᴇʀ",
                             url=f"https://t.me/{OWNER_USERNAME}",
+                        ),
+                        InlineKeyboardButton(
+                            text="ᴄʟᴏsᴇ",
+                            callback_data="close_",
                         ),
                     ],
                 ]
@@ -423,26 +430,15 @@ def KRISTY_about_callback(update, context):
     query = update.callback_query
     if query.data == "KRISTY_":
         query.message.edit_text(
-            text=f"๏ I'm *[{BOT_NAME}](https://t.me/Miss_Kristy_bot)*, ᴀ ᴘᴏᴡᴇʀꜰᴜʟ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ʙᴜɪʟᴛ ᴛᴏ ʜᴇʟᴘ ʏᴏᴜ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴇᴀꜱɪʟʏ."
-            "\n» ɪ ᴄᴀɴ ʀᴇꜱᴛʀɪᴄᴛ ᴜꜱᴇʀꜱ."
-            "\n» ɪ ᴀᴍ ʙᴜɪʟᴛ ᴡɪᴛʜ [ᴘʏᴛʜᴏɴ](https://www.python.org/) ,[ᴍᴏɴɢᴏᴅʙ](https://www.mongodb.com/)."
-            "\n» ᴍʏ ʙᴀꜱᴇ ɪꜱ ᴍᴀᴅᴇ ᴜᴘ ᴏꜰ [ᴛᴇʟᴇᴛʜᴏɴ](https://github.com/LonamiWebs/Telethon) ᴀɴᴅ [ᴘʏʀᴏɢʀᴀᴍ](https://github.com/pyrogram/pyrogram)."
-            "\n» ɪ ʜᴀᴠᴇ ᴀɴ ᴀᴅᴠᴀɴᴄᴇᴅ ᴀɴᴛɪ-ꜰʟᴏᴏᴅ ꜱʏꜱᴛᴇᴍ."
-            "\n» ɪ ʜᴀᴠᴇ ɴꜱᴡꜰ ᴛᴏ ᴅᴇᴛᴇᴄᴛ ᴀᴅᴜʟᴛ ᴄᴏɴᴛᴇɴᴛꜱ ᴀɴᴅ ᴛᴏ ᴘʀᴏᴛᴇᴄᴛ ᴛʜᴇ ɢʀᴏᴜᴘ ꜰʀᴏᴍ ᴘᴏʀɴᴏɢʀᴀᴘʜɪᴄ ᴄᴏɴᴛᴇɴᴛꜱ."
-            "\n» ɪ ᴄᴀɴ ᴘʀᴏᴛᴇᴄᴛ ʏᴏᴜʀ ɢʀᴏᴜᴘ ꜰʀᴏᴍ ꜱᴘᴀᴍꜱ ᴀɴᴅ ʀᴀɪᴅꜱ."
-            "\n» ɪ ʜᴀᴠᴇ ᴍᴀɴʏ ᴛᴏᴏʟꜱ ꜰᴏʀ ꜰᴜɴ ᴀɴᴅ ᴇɴᴊᴏʏᴍᴇɴᴛ ᴛᴏ ᴇɴᴛᴇʀᴛᴀɪɴ ʏᴏᴜ ᴀʟʟ"
-            "\n» ɪ ᴀᴍ ᴘᴜʙʟɪꜱʜᴇᴅ ᴜɴᴅᴇʀ ʟɪᴄᴇɴꜱᴇ :- [ɢɴᴜ ʟɪᴄᴇɴꜱᴇ](https://github.com/Alton-xd/KRISTY/blob/main/LICENSE)"
-            "\n\n 𝗧𝗛𝗔𝗡𝗞𝗦 𝗙𝗢𝗥 𝗦𝗨𝗣𝗣𝗢𝗥𝗧𝗜𝗡𝗚 𝗨𝗦",
+            text="๏ I'm *KRISTY*, a powerful group management + music bot built to help you manage your group easily."
+            "\n\n Click on button bellow to get basic help for KRISTY.",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-        InlineKeyboardButton(text="ᴏᴡɴᴇʀ", url=f"https://t.me/{OWNER_USERNAME}"),
-        InlineKeyboardButton(text="ᴅᴇᴠᴇʟᴏᴘᴇʀ", url=f"https://t.me/i_am_pro_king"),
-                 ],
-                 [
-        InlineKeyboardButton(text="ꜱᴏᴜʀᴄᴇ", url=f"https://github.com/Alton-xd/KRISTY"),
+                    InlineKeyboardButton(text="ᴍᴜꜱɪᴄ", callback_data="KRISTY_music"),
+                    InlineKeyboardButton(text="ᴍᴀɴᴀɢᴇᴍᴇɴᴛ", callback_data="help_back"),
                  ],
                  [
                     InlineKeyboardButton(text="◁", callback_data="KRISTY_back"),
@@ -450,8 +446,6 @@ def KRISTY_about_callback(update, context):
                 ]
             ),
         )
-
-
     elif query.data == "KRISTY_back":
         first_name = update.effective_user.first_name
         uptime = get_readable_time((time.time() - StartTime))
@@ -468,36 +462,42 @@ def KRISTY_about_callback(update, context):
             disable_web_page_preview=False,
         )
 
-
-def Source_about_callback(update, context):
-    query = update.callback_query
-    if query.data == "source_":
+    elif query.data == "KRISTY_about":
         query.message.edit_text(
-            text="๏›› soon",
+            text=f"๏ I'm [{BOT_NAME}](https://t.me/Miss_Kristy_bot), ᴀ ᴘᴏᴡᴇʀꜰᴜʟ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ʙᴜɪʟᴛ ᴛᴏ ʜᴇʟᴘ ʏᴏᴜ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴇᴀꜱɪʟʏ."
+            "\n» ɪ ᴄᴀɴ ʀᴇꜱᴛʀɪᴄᴛ ᴜꜱᴇʀꜱ."
+            "\n» ɪ ᴀᴍ ʙᴜɪʟᴛ ᴡɪᴛʜ [ᴘʏᴛʜᴏɴ](https://www.python.org/) ,[ᴍᴏɴɢᴏᴅʙ](https://www.mongodb.com/)."
+            "\n» ᴍʏ ʙᴀꜱᴇ ɪꜱ ᴍᴀᴅᴇ ᴜᴘ ᴏꜰ [ᴛᴇʟᴇᴛʜᴏɴ](https://github.com/LonamiWebs/Telethon) ᴀɴᴅ [ᴘʏʀᴏɢʀᴀᴍ](https://github.com/pyrogram/pyrogram)."
+            "\n» ɪ ʜᴀᴠᴇ ᴀɴ ᴀᴅᴠᴀɴᴄᴇᴅ ᴀɴᴛɪ-ꜰʟᴏᴏᴅ ꜱʏꜱᴛᴇᴍ."
+            "\n» ɪ ʜᴀᴠᴇ ɴꜱᴡꜰ ᴛᴏ ᴅᴇᴛᴇᴄᴛ ᴀᴅᴜʟᴛ ᴄᴏɴᴛᴇɴᴛꜱ ᴀɴᴅ ᴛᴏ ᴘʀᴏᴛᴇᴄᴛ ᴛʜᴇ ɢʀᴏᴜᴘ ꜰʀᴏᴍ ᴘᴏʀɴᴏɢʀᴀᴘʜɪᴄ ᴄᴏɴᴛᴇɴᴛꜱ."
+            "\n» ɪ ᴄᴀɴ ᴘʀᴏᴛᴇᴄᴛ ʏᴏᴜʀ ɢʀᴏᴜᴘ ꜰʀᴏᴍ ꜱᴘᴀᴍꜱ ᴀɴᴅ ʀᴀɪᴅꜱ."
+            "\n» ɪ ʜᴀᴠᴇ ᴍᴀɴʏ ᴛᴏᴏʟꜱ ꜰᴏʀ ꜰᴜɴ ᴀɴᴅ ᴇɴᴊᴏʏᴍᴇɴᴛ ᴛᴏ ᴇɴᴛᴇʀᴛᴀɪɴ ʏᴏᴜ ᴀʟʟ"
+            "\n» ɪ ᴀᴍ ᴘᴜʙʟɪꜱʜᴇᴅ ᴜɴᴅᴇʀ ʟɪᴄᴇɴꜱᴇ :- [ɢɴᴜ ʟɪᴄᴇɴꜱᴇ](https://github.com/Alton-xd/KRISTY/blob/main/LICENSE)"
+            "\n\n 𝗧𝗛𝗔𝗡𝗞𝗦 𝗙𝗢𝗥 𝗦𝗨𝗣𝗣𝗢𝗥𝗧𝗜𝗡𝗚 𝗨𝗦",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [
-                 [
-                    InlineKeyboardButton(text="◁", callback_data="KRISTY_")
-                 ]
-                ]
+                [[InlineKeyboardButton(text="◁", callback_data="KRISTY_back")]]
             ),
         )
-    elif query.data == "source_back":
-        first_name = update.effective_user.first_name
-        query.message.edit_text(
-                PM_START_TEXT.format(
-                    escape_markdown(first_name),
-                    escape_markdown(uptime),
-                    sql.num_users(),
-                    sql.num_chats()),
-                reply_markup=InlineKeyboardMarkup(buttons),
-                parse_mode=ParseMode.MARKDOWN,
-                timeout=60,
-                disable_web_page_preview=False,
-        )
 
+    elif query.data == "KRISTY_music":
+        query.message.edit_text(
+            text=f"<b>๏ ᴜꜱᴇʀ~ᴄᴏᴍᴍᴀɴᴅꜱ</b>"
+            f"\n\n» /play : sᴛᴀʀᴛs sᴛʀᴇᴀᴍɪɴɢ ᴛʜᴇ ʀᴇǫᴜᴇsᴛᴇᴅ ᴛʀᴀᴄᴋ ᴏɴ ᴠɪᴅᴇᴏᴄʜᴀᴛ."
+            f"\n» /vplay : sᴛᴀʀᴛs sᴛʀᴇᴀᴍɪɴɢ ᴛʜᴇ ʀᴇǫᴜᴇsᴛᴇᴅ ᴠɪᴅᴇᴏ-ᴛʀᴀᴄᴋ ᴏɴ ᴠɪᴅᴇᴏᴄʜᴀᴛ."
+            f"\n» /cplay : ꜱᴛᴀʀᴛꜱ ᴘʟᴀʏɪɴɢ ɢɪᴠᴇɴ ᴛʀᴀᴄᴋ ɪɴ ᴄʜᴀɴɴᴇʟ"
+            f"\n» /loop [ᴅɪsᴀʙʟᴇ/ᴇɴᴀʙʟᴇ] ᴏʀ [ʙᴇᴛᴡᴇᴇɴ 1:10] : ᴡʜᴇɴ ᴀᴄᴛɪᴠᴀᴛᴇᴅ ʙᴏᴛ ᴡɪʟʟ ᴩʟᴀʏ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ ᴩʟᴀʏɪɴɢ sᴛʀᴇᴀᴍ ɪɴ ʟᴏᴏᴩ ғᴏʀ 10 ᴛɪᴍᴇs ᴏʀ ᴛʜᴇ ɴᴜᴍʙᴇʀ ᴏғ ʀᴇǫᴜᴇsᴛᴇᴅ ʟᴏᴏᴩs."
+            f"\n» /shuffle : sʜᴜғғʟᴇ ᴛʜᴇ ǫᴜᴇᴜᴇᴅ ᴛʀᴀᴄᴋs."
+            f"\n» /seek : sᴇᴇᴋ ᴛʜᴇ sᴛʀᴇᴀᴍ ᴛᴏ ᴛʜᴇ ɢɪᴠᴇɴ ᴅᴜʀᴀᴛɪᴏɴ."
+            f"\n» /seekback : ʙᴀᴄᴋᴡᴀʀᴅ sᴇᴇᴋ ᴛʜᴇ sᴛʀᴇᴀᴍ ᴛᴏ ᴛʜᴇ ᴛʜᴇ ɢɪᴠᴇɴ ᴅᴜʀᴀᴛɪᴏɴ."
+            f"\n» /song - ᴛᴏ ɢᴇᴛ ᴛʜᴇ ꜱᴏɴɢ ᴀᴜᴅɪᴏ"
+            f"\n» /lyrics [sᴏɴɢ ɴᴀᴍᴇ] : sᴇᴀʀᴄʜ ʟʏʀɪᴄs ғᴏʀ ᴛʜᴇ ʀᴇǫᴜᴇsᴛᴇᴅ sᴏɴɢ ᴀɴᴅ sᴇɴᴅ ᴛʜᴇ ʀᴇsᴜʟᴛs.",
+            parse_mode=ParseMode.HTML,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="◁", callback_data="KRISTY_supports")]]
+            ),
+        )
 def get_help(update: Update, context: CallbackContext):
     chat = update.effective_chat  # type: Optional[Chat]
     args = update.effective_message.text.split(None, 1)
@@ -776,7 +776,7 @@ def main():
 ━━━━━━━━━━━━━
 » **ᴏᴡɴᴇʀ :** [ᴀʟᴏɴᴇ](https://t.me/{OWNER_USERNAME})
 » **ʟɪʙʀᴀʀʏ  :** `{so}`
-» **ᴛᴇʟᴇᴛʜᴏɴ :** `{am}`
+» **ᴛᴇʟᴇᴛʜᴏɴ :** `{no}`
 » **ᴘʏʀᴏɢʀᴀᴍ :** `{do}`
 » **ᴍᴏɴɢᴏ ᴅʙ :** `3.9.0`
 » **ꜱQʟᴀʟᴄʜᴇᴍʏ :** `1.4.31`
