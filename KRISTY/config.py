@@ -39,7 +39,7 @@ class Config(object):
 
     # RECOMMENDED
     STRING_SESSION ="1AZWarzkBu34tmJxAa4d7zfCEKkVT9O6kFj32FrodqKoHhUNqq1O-A7FNu9sbjLt-0n4yQPQiXr_0FBnBlfJHbluYJtnl2u2HkQF_XpHLgwF8dLRLpx9D-4bum96ae_oIhm8ZovssjXNplZtzI-KoLJ6OP6Vce6XWMF1UaA6bjuxpgWLYNBzI-NOCVtlSLvys27ZwpxG4plel253EBno6WoH7ShdMU4bD1JGebcjr6n-GMB1SNevAVzmg2VIa38ZaFG1lYDq4nGv5dx4zxToUW0_NNgoOTxtbyPZKd9JU3Wyrcpjiunjkd3-PNGhy5-6U02dX1WBwoKwHg3tqpmDJHjuz2cg-q_c=" #telethon string session of user or bot get it from https://replit.com/@MISSKRISTY/MISS-KRISTY
-    MONGO_DB_URI = "mongodb+srv://King098:king098@cluster0.lhmvji8.mongodb.net/?retryWrites=true&w=majority" #get it from mongodb.com get
+    MONGO_DB_URI = "mongodb+srv://Aman:Aman@cluster0.gt2bc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority" #get it from mongodb.com get
     ARQ_API_KEY = "ZYXASV-RNRLIS-AKGBNQ-NIPHTK-ARQ" #git it form @ARQRobot
     ARQ_API_URL = "https://arq.hamker.in" # dont change
     SQLALCHEMY_DATABASE_URL = "postgres://adkdmsyl:36pn6bpyGsXdXR1uxGWCLuGma_S55Zbs@snuffleupagus.db.elephantsql.com/adkdmsyl"  # needed for any database modules get it from https://www.elephantsql.com/
