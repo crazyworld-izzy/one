@@ -1,13 +1,9 @@
-import inspect
-import re
-from pathlib import Path
+from typing import Dict, Union
 
 from pymongo import MongoClient
-from telethon import events
 
-from KRISTY import MONGO_DB_URI, telethn
+from FallenRobot import MONGO_DB_URI
 
 client = MongoClient()
 client = MongoClient(MONGO_DB_URI)
 db = client["KRISTY"]
-gbanned = db.gban
