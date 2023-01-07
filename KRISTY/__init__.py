@@ -60,7 +60,6 @@ if ENV:
         raise Exception("Your OWNER_ID env variable is not a valid integer.")
 
     JOIN_LOGGER = os.environ.get("JOIN_LOGGER", None)
-	
     OWNER_USERNAME = os.environ.get("OWNER_USERNAME", None)
 
     try:
@@ -101,6 +100,7 @@ if ENV:
     DB_URL = DB_URL.replace("postgres://", "postgresql://", 1)
     REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", "TRYUKo5sCJ6q1WaK4k4ENHya")
     MONGO_DB_URI = os.environ.get("MONGO_DB_URI", None)
+    DONATION_LINK = os.environ.get("DONATION_LINK")
     LOAD = os.environ.get("LOAD", "").split()
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
@@ -175,6 +175,7 @@ else:
     MONGO_DB_URI = Config.MONGO_DB_URI
     ARQ_API_KEY = Config.ARQ_API_KEY
     ARQ_API_URL = Config.ARQ_API_URL
+    DONATION_LINK = Config.DONATION_LINK
     START_STICKER = Config.START_STICKER
     LOAD = Config.LOAD
     TEMP_DOWNLOAD_DIRECTORY = Config.TEMP_DOWNLOAD_DIRECTORY
@@ -230,10 +231,10 @@ defaults = tg.Defaults(run_async=True)
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient(MemorySession(), API_ID, API_HASH)
 dispatcher = updater.dispatcher
-print("[INFO]: INITIALIZING AIOHTTP SESSION")
+print("[KRISTY]: INITIALIZING AIOHTTP SESSION")
 aiohttpsession = ClientSession()
 # ARQ Client
-print("[INFO]: INITIALIZING ARQ CLIENT")
+print("[KRISTY]: INITIALIZING ARQ CLIENT")
 arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
 
 ubot2 = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH)
@@ -321,7 +322,7 @@ def spamcheck(func):
 	return check_user
 
 # Bot info
-print("[INFO]: Getting Bot Info...")
+print("[KRISTY]: Getting Bot Info...")
 BOT_NAME = dispatcher.bot.first_name
 BOT_ID = dispatcher.bot.id
 
