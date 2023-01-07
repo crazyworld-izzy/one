@@ -17,7 +17,6 @@ from KRISTY import (
     START_IMG,
     CERT_PATH,
     OWNER_USERNAME,
-    DONATION_LINK,
     BOT_USERNAME as bu,
     LOGGER,
     OWNER_ID,
@@ -122,6 +121,7 @@ buttons = [
     ],
 ]
 
+DONATION_LINK = "bambu"
 
 HELP_STRINGS = """
 ᴄᴏᴍᴍᴀɴᴅs ᴀᴠᴀɪʟᴀʙʟᴇ:
