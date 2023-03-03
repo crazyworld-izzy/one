@@ -88,7 +88,7 @@ def get_readable_time(seconds: int) -> str:
 
     return ping_time
 
-DONATION_LINK = "https://t.me/I_AM_PRO_KING"
+DONATION_LINK = "https://t.me/Pacha_pulla_nannu"
 
 start_txt = """
 ʜᴇʏ🥀 `{}`, ʜᴏᴡ ᴀʀᴇ ʏᴏᴜ!!
@@ -96,7 +96,7 @@ start_txt = """
 
 PM_START_TEXT = """
 *Hello {} !*
-» ɪ ᴀᴍ ᴀ ᴘᴏᴡᴇʀ ꜰᴜʟʟ ʙᴏᴛ ᴛᴏ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘꜱ [🔥](https://telegra.ph/file/17fce64cf1e4dda004ecd.jpg)
+» ɪ ᴀᴍ ᴀ ᴘᴏᴡᴇʀ ꜰᴜʟʟ ʙᴏᴛ ᴛᴏ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘꜱ [🔥](https://te.legra.ph/file/1e5a7fa65456e3fa7d54d.jpg)
 ────────────────────────
 » *Uptime:* `{}`
 » `{}` *users, across* `{}` *chats.*
@@ -423,7 +423,7 @@ def KRISTY_about_callback(update, context):
     query = update.callback_query
     if query.data == "KRISTY_":
         query.message.edit_text(
-            text=f"๏ I'm *[{BOT_NAME}](https://t.me/Miss_Kristy_bot)*, ᴀ ᴘᴏᴡᴇʀꜰᴜʟ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ʙᴜɪʟᴛ ᴛᴏ ʜᴇʟᴘ ʏᴏᴜ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴇᴀꜱɪʟʏ."
+            text=f"๏ I'm *[{BOT_NAME}](https://t.me/One_love_management_bot)*, ᴀ ᴘᴏᴡᴇʀꜰᴜʟ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ʙᴜɪʟᴛ ᴛᴏ ʜᴇʟᴘ ʏᴏᴜ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴇᴀꜱɪʟʏ."
             "\n» ɪ ᴄᴀɴ ʀᴇꜱᴛʀɪᴄᴛ ᴜꜱᴇʀꜱ."
             "\n» ɪ ᴀᴍ ʙᴜɪʟᴛ ᴡɪᴛʜ [ᴘʏᴛʜᴏɴ](https://www.python.org/) ,[ᴍᴏɴɢᴏᴅʙ](https://www.mongodb.com/)."
             "\n» ᴍʏ ʙᴀꜱᴇ ɪꜱ ᴍᴀᴅᴇ ᴜᴘ ᴏꜰ [ᴛᴇʟᴇᴛʜᴏɴ](https://github.com/LonamiWebs/Telethon) ᴀɴᴅ [ᴘʏʀᴏɢʀᴀᴍ](https://github.com/pyrogram/pyrogram)."
@@ -431,7 +431,7 @@ def KRISTY_about_callback(update, context):
             "\n» ɪ ʜᴀᴠᴇ ɴꜱᴡꜰ ᴛᴏ ᴅᴇᴛᴇᴄᴛ ᴀᴅᴜʟᴛ ᴄᴏɴᴛᴇɴᴛꜱ ᴀɴᴅ ᴛᴏ ᴘʀᴏᴛᴇᴄᴛ ᴛʜᴇ ɢʀᴏᴜᴘ ꜰʀᴏᴍ ᴘᴏʀɴᴏɢʀᴀᴘʜɪᴄ ᴄᴏɴᴛᴇɴᴛꜱ."
             "\n» ɪ ᴄᴀɴ ᴘʀᴏᴛᴇᴄᴛ ʏᴏᴜʀ ɢʀᴏᴜᴘ ꜰʀᴏᴍ ꜱᴘᴀᴍꜱ ᴀɴᴅ ʀᴀɪᴅꜱ."
             "\n» ɪ ʜᴀᴠᴇ ᴍᴀɴʏ ᴛᴏᴏʟꜱ ꜰᴏʀ ꜰᴜɴ ᴀɴᴅ ᴇɴᴊᴏʏᴍᴇɴᴛ ᴛᴏ ᴇɴᴛᴇʀᴛᴀɪɴ ʏᴏᴜ ᴀʟʟ"
-            "\n» ɪ ᴀᴍ ᴘᴜʙʟɪꜱʜᴇᴅ ᴜɴᴅᴇʀ ʟɪᴄᴇɴꜱᴇ :- [ɢɴᴜ ʟɪᴄᴇɴꜱᴇ](https://github.com/Alton-xd/KRISTY/blob/main/LICENSE)"
+            "\n» ɪ ᴀᴍ ᴘᴜʙʟɪꜱʜᴇᴅ ᴜɴᴅᴇʀ ʟɪᴄᴇɴꜱ [ʟɪᴄᴇɴꜱ](https://github.com/Alton-xd/KRISTY/blob/main/LICENSE)"
             "\n\n 𝗧𝗛𝗔𝗡𝗞𝗦 𝗙𝗢𝗥 𝗦𝗨𝗣𝗣𝗢𝗥𝗧𝗜𝗡𝗚 𝗨𝗦",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
@@ -439,10 +439,10 @@ def KRISTY_about_callback(update, context):
                 [
                  [
         InlineKeyboardButton(text="ᴏᴡɴᴇʀ", url=f"https://t.me/{OWNER_USERNAME}"),
-        InlineKeyboardButton(text="ᴅᴇᴠᴇʟᴏᴘᴇʀ", url=f"https://t.me/i_am_pro_king"),
+        InlineKeyboardButton(text="ᴅᴇᴠᴇʟᴏᴘᴇʀ", url=f"https://t.me/Pacha_pulla_nannu"),
                  ],
                  [
-        InlineKeyboardButton(text="ꜱᴏᴜʀᴄᴇ", url=f"https://github.com/Alton-xd/KRISTY"),
+        InlineKeyboardButton(text="ꜱᴏᴜʀᴄᴇ", url=f"https://github.com/SRIDHAR804/suprice"),
                  ],
                  [
                     InlineKeyboardButton(text="◁", callback_data="KRISTY_back"),
