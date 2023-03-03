@@ -12,23 +12,23 @@ class Config(object):
     # REQUIRED
     # Login to https://my.telegram.org and fill in these slots with the details given by it
      
-    API_ID = 18641113  # integer value, dont use "" this sign get it form my.telegram.org
-    API_HASH = "bc5fea81e7bf9f3c0784a0a7d35f9c71" # get it form my.telegram.org
-    TOKEN = "5864142861:AAHRGgDQnqDoWaHhP0k_ginuFMpeuDBmrPk"  # get it form @botfather.
-    OWNER_ID = 5323266323  # got to @miss_kristy_bot and type /id
-    OWNER_USERNAME = "kassim_darlzzz" # your telegram username
+    API_ID = 22766050  # integer value, dont use "" this sign get it form my.telegram.org
+    API_HASH = "092af0023f22b00248071887b1a74efa" # get it form my.telegram.org
+    TOKEN = "6233388086:AAEO8W5qNRSMaOHxhBkNEpMHv5KfTu-xSOg"  # get it form @botfather.
+    OWNER_ID = 6021591808  # got to @miss_kristy_bot and type /id
+    OWNER_USERNAME = "Pacha_pulla_nannu" # your telegram username
     ALLOW_CHATS = True # leave it as it is
-    BOT_USERNAME = "WizkhalifaBot" # your bot username get it form @botfather
-    SUPPORT_CHAT = "WizkhalifaSupport"  # Your own group for support, do not add the @ if you dont have leave it as it is
-    UPDATES_CHANNEL = "Wizkhalifachannel"  # Your own chsnnel for support, do not add the @ if you dont have leave it as it is
+    BOT_USERNAME = "One_love_management_bot" # your bot username get it form @botfather
+    SUPPORT_CHAT = "https://t.me/one_love_management"  # Your own group for support, do not add the @ if you dont have leave it as it is
+    UPDATES_CHANNEL = "https://t.me/one_love_management"  # Your own chsnnel for support, do not add the @ if you dont have leave it as it is
     JOIN_LOGGER =  (
-        -1001720434107
+        -1001523625722
     )  # add @miss_kristy_bot in your group and type /id
     EVENT_LOGS = (
-        -1001720434107
+        -1001523625722
     )  # add @miss_kristy_bot in your group and type /id
     ERROR_LOG = (
-        -1001720434107
+        -1001523625722
     )  # add @miss_kristy_bot in your group and type /id
     STRICT_GMUTE = True #to allow gmutes
     START_STICKER = "" #sticker id for start animation
@@ -38,7 +38,7 @@ class Config(object):
 
 
     # RECOMMENDED
-    STRING_SESSION ="1AZWarzkBu34tmJxAa4d7zfCEKkVT9O6kFj32FrodqKoHhUNqq1O-A7FNu9sbjLt-0n4yQPQiXr_0FBnBlfJHbluYJtnl2u2HkQF_XpHLgwF8dLRLpx9D-4bum96ae_oIhm8ZovssjXNplZtzI-KoLJ6OP6Vce6XWMF1UaA6bjuxpgWLYNBzI-NOCVtlSLvys27ZwpxG4plel253EBno6WoH7ShdMU4bD1JGebcjr6n-GMB1SNevAVzmg2VIa38ZaFG1lYDq4nGv5dx4zxToUW0_NNgoOTxtbyPZKd9JU3Wyrcpjiunjkd3-PNGhy5-6U02dX1WBwoKwHg3tqpmDJHjuz2cg-q_c=" #telethon string session of user or bot get it from https://replit.com/@MISSKRISTY/MISS-KRISTY
+    STRING_SESSION ="BQCZ368I97g6dpzYniJ59EmSjXEHmD9ewtuj0ZRHDqgEzDqoFMLUIcRQNFXmNDTUKn7k7N2K4e8X1OlJTFOS943tPxAV_eKfTL_w_9uKodsZn-p9p6Oy594QNIUaRk3G8jPSY6bfGyDDin9HdkMq6IbiKSa1Xcd6ilU0HhhkZ-XdDyyD6BTIkJpKvpamgGCw65Ycf8qu5ICeKpBY5VkeeUXDl-8Dbo-wVbtBCfaaYoW6z3Jrqm-yux86O41Dle_Gy4AejhQortZ_bD193q6_ox9E0JbdoFRmaJaQLYTpmaiHlx7OEIy_fKGEuIkQn3Bgr0gubJTue4prNPFu9kTldK0LAAAAAV-qRMkA" #telethon string session of user or bot get it from https://replit.com/@MISSKRISTY/MISS-KRISTY
     MONGO_DB_URI = "mongodb+srv://King098:king098@cluster0.lhmvji8.mongodb.net/?retryWrites=true&w=majority" #get it from mongodb.com get
     ARQ_API_KEY = "ZYXASV-RNRLIS-AKGBNQ-NIPHTK-ARQ" #git it form @ARQRobot
     ARQ_API_URL = "https://arq.hamker.in" # dont change
@@ -49,20 +49,20 @@ class Config(object):
     INFOPIC = True
     URL = None
     SPAMWATCH_API = ""  # go to support.spamwat.ch to get key
-    SPAMWATCH_SUPPORT_CHAT = "@WizkhalifaSupport"
+    SPAMWATCH_SUPPORT_CHAT = "https://t.me/one_love_management"
 
 
     # OPTIONAL
     ##List of id's -  (not usernames) for users which have sudo access to the bot.
-    DRAGONS = [1820525265]
+    DRAGONS = [6021591808]
     ##List of id's - (not usernames) for developers who will have the same perms as the owner
-    DEV_USERS = [1820525265]
+    DEV_USERS = [6021591808]
     ##List of id's (not usernames) for users which are allowed to gban, but can also be banned.
-    DEMONS = [5323266323]
+    DEMONS = [6021591808]
     # List of id's (not usernames) for users which WONT be banned/kicked by the bot.
-    TIGERS = [5323266323]
-    WOLVES = [5323266323]
-    START_IMG = "https://telegra.ph/file/8fc05e1bc37effdf4302b.jpg" #yor fav img link
+    TIGERS = [6021591808]
+    WOLVES = [6021591808]
+    START_IMG = "https://te.legra.ph/file/1e5a7fa65456e3fa7d54d.jpg" #yor fav img link
     CERT_PATH = None
     PORT = 5000
     DEL_CMDS = True  # Delete commands that users dont have access to, like delete /ban if a non admin uses it.
